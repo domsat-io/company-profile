@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground: 0, 0, 0;
-  --background: 214, 219, 220;
+  --foreground: "white";
+  --background: "black";
+  --accent: "#A7D129";
+  --font-qilandia: "Qilandia", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
 }
 
 @media (prefers-color-scheme: light) {
@@ -16,5 +19,5 @@
 
 body {
   color: rgb(var(--foreground));
-  background: rgb(var(--background-end-rgb));
+  background: rgb(var(--background));
 }

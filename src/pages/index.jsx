@@ -1,3 +1,4 @@
+import About from "@/components/about";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
@@ -9,8 +10,9 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Service />
-        <Footer />
+        <About />
+        {/* <Service /> */}
+        {/* <Footer /> */}
       </main>
     </>
   );
