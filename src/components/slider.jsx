@@ -16,7 +16,7 @@ const Slider = () => {
           delay: 0.8,
         }}
         loop={true}
-        slidesPerView={2.5}
+        slidesPerView={2.2}
         allowTouchMove={false}
         disableOnInteraction={true}
         modules={[Autoplay]}

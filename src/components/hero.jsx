@@ -14,7 +14,7 @@ const Hero = () => {
         <div className="row">
           <div className="col-lg-8">
             <div className="aximo-hero-content">
-              <h1 className="text-5xl md:text-[70px]">
+              <h1 className="text-5xl md:text-[100px]">
                 <span className="aximo-title-animation">
                   A creative
                   <Image src={star} alt="" />
