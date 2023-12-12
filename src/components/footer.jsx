@@ -1,12 +1,61 @@
-import Link from "next/link";
-import React from "react";
+import React,{useState} from "react";
 import Image from "next/image";
 import logoWhite from "../assets/images/logo/logo-white.svg";
 import star2 from "../assets/images/v1/star2.png";
 import shape1 from "../assets/images/v1/shape1.png";
 import arrowRight3 from "../assets/images/icon/arrow-right3.svg";
 
+
+
 const Footer = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/send_email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, message }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw Error(json.message);
+      alert("Message Sent");
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+    } catch (e) {
+      throw Error(e.message);
+    }
+  }
+
+
+ const sosialMedia = [
+    {
+      name: "Twitter",
+      link: "https://twitter.com/",
+      icon: "icon-twitter",
+    },
+    {
+      name: "Facebook",
+      link: "https://facebook.com/",
+      icon: "icon-facebook",
+    },
+    {
+      name: "Instagram",
+      link: "https://www.instagram.com/",
+      icon: "icon-instagram",
+    },
+    {
+      name: "LinkedIn",
+      link: "https://www.linkedin.com/",
+      icon: "icon-linkedin",
+    },
+  ];
   return (
     <footer class="aximo-footer-section dark-bg" id="contact">
       <div class="container">
@@ -49,26 +98,13 @@ const Footer = () => {
                 </div>
                 <div class="aximo-social-icon social-large">
                   <ul>
-                    <li>
-                      <a href="https://twitter.com/" target="_blank">
-                        <i class="icon-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://facebook.com/" target="_blank">
-                        <i class="icon-facebook"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.instagram.com/" target="_blank">
-                        <i class="icon-instagram"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://www.linkedin.com/" target="_blank">
-                        <i class="icon-linkedin"></i>
-                      </a>
-                    </li>
+                    {sosialMedia.map((item, index) => (
+                      <li key={index}>
+                        <a href={item.link} target="_blank">
+                          <i class={item.icon}></i>
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div class="aximo-hero-shape aximo-footer-shape">
@@ -79,20 +115,22 @@ const Footer = () => {
             <div class="col-lg-5">
               <div class="aximo-form-wrap">
                 <h4>Send us a message</h4>
-                <form action="#">
+                <form onSubmit={handleSubmit}>
                   <div class="aximo-form-field">
-                    <input type="text" placeholder="Your name" />
+                    <input type="text" placeholder="Your name" value={name} onChange={e=>setName(e.target.value)}/>
                   </div>
                   <div class="aximo-form-field">
-                    <input type="email" placeholder="Your email address" />
+                    <input type="email" placeholder="Your email address" value={email} onChange={e => setEmail(e.target.value)}/>
                   </div>
                   <div class="aximo-form-field">
-                    <input type="text" placeholder="+088-234-6849" />
+                    <input type="text" placeholder="+088-234-6849" value={phone} onChange={e => setPhone(e.target.value)} />
                   </div>
                   <div class="aximo-form-field">
                     <textarea
                       name="textarea"
                       placeholder="Write your message here..."
+                      value={message}
+                      onChange={e => setMessage(e.target.value)}
                     ></textarea>
                   </div>
                   <button id="aximo-submit-btn" type="submit">
@@ -128,3 +166,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
