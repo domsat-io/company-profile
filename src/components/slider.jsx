@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import star3 from "../assets/images/v1/star3.png";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,7 +5,7 @@ import { Autoplay } from "swiper/modules";
 
 const Slider = () => {
   return (
-    <div className="aximo-auto-slider-section overflow-hidden">
+    <div className="aximo-auto-slider-section">
       <Swiper
         spaceBetween={0}
         centeredSlides={true}
@@ -33,15 +32,13 @@ const Slider = () => {
         allowTouchMove={false}
         disableOnInteraction={true}
         modules={[Autoplay]}
-        className="mySwiper"
+        className="swiper aximo-auto-slider"
       >
-        {[...new Array(3)].map((index) => (
-          <SwiperSlide key={index}>
-            <div className="flex gap-5">
-              <div className="aximo-auto-slider-item">
-                <h3>Let&apos;s create new experiences</h3>
-                <Image src={star3} alt="" />
-              </div>
+        {[...new Array(4)].map((index) => (
+          <SwiperSlide key={index} className="swiper-slide">
+            <div className="aximo-auto-slider-item">
+              <h3>Let&apos;s create new experiences</h3>
+              <Image src={star3} alt="" />
             </div>
           </SwiperSlide>
         ))}
