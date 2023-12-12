@@ -4,6 +4,32 @@ import star2 from "../assets/images/v1/star2.png";
 import arrowRight from "../assets/images/icon/arrow-right.svg";
 
 const Service = () => {
+  const services = [
+    {
+      title: "UI/UX Design",
+      description:
+        "Focusing on user interface (UI) and user experience (UX) design enhance the usability and accessibility of digital products & app.",
+      icon: "icon-design-tools",
+    },
+    {
+      title: "Graphic Design",
+      description:
+        "Creating visual elements such as logos, branding materials, page layout techniques, brochures, & other marketing collateral.",
+      icon: "icon-branding",
+    },
+    {
+      title: "Web Design",
+      description:
+        "Designing and developing websites to ensure they are visually look and appealing, user-friendly, and functional your website.",
+      icon: "icon-web",
+    },
+    {
+      title: "Motion Graphics",
+      description:
+        "Creating animate graphics, videos for various purposes, including marketing and entertainment. To help sell a product or service.",
+      icon: "icon-design-thinking",
+    },
+  ];
   return (
     <div className="section aximo-section-padding4">
       <div className="container">
@@ -20,90 +46,27 @@ const Service = () => {
         </div>
         <div className="aximo-service-wrap">
           <div className="row">
-            <div className="col-lg-6">
-              <div
-                className="aximo-iconbox-wrap wow fadeInUpX"
-                data-wow-delay="0.1s"
-              >
-                <div className="aximo-iconbox-icon">
-                  <i className="icon-design-tools"></i>
-                </div>
-                <div className="aximo-iconbox-data">
-                  <h3>UI/UX Design</h3>
-                  <p>
-                    Focusing on user interface (UI) and user experience (UX)
-                    design enhance the usability and accessibility of digital
-                    products & app.
-                  </p>
-                  <a className="aximo-icon" href="service.html">
-                    <Image src={arrowRight} alt="" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div
-                className="aximo-iconbox-wrap wow fadeInUpX"
-                data-wow-delay="0.2s"
-              >
-                <div className="aximo-iconbox-icon">
-                  <i className="icon-branding"></i>
-                </div>
-                <div className="aximo-iconbox-data">
-                  <h3>Graphic Design</h3>
-                  <p>
-                    Creating visual elements such as logos, branding materials,
-                    page layout techniques, brochures, & other marketing
-                    collateral.
-                  </p>
-                  <a className="aximo-icon" href="service.html">
-                    <Image src={arrowRight} alt="" />
-                  </a>
+            {services.map((service, index) => (
+              <div className="col-lg-6" key={index}>
+                <div
+                  className="aximo-iconbox-wrap wow fadeInUpX"
+                  data-wow-delay="0.1s"
+                >
+                  <div className="aximo-iconbox-icon">
+                    <i className={service.icon}></i>
+                  </div>
+                  <div className="aximo-iconbox-data">
+                    <h3>{service.title}</h3>
+                    <p>
+                     {service.description}
+                    </p>
+                    <a className="aximo-icon" href="service.html">
+                      <Image src={arrowRight} alt={arrowRight} />
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-6">
-              <div
-                className="aximo-iconbox-wrap wow fadeInUpX"
-                data-wow-delay="0.3s"
-              >
-                <div className="aximo-iconbox-icon">
-                  <i className="icon-web"></i>
-                </div>
-                <div className="aximo-iconbox-data">
-                  <h3>Web Design</h3>
-                  <p>
-                    Designing and developing websites to ensure they are
-                    visually look and appealing, user-friendly, and functional
-                    your website.
-                  </p>
-                  <a className="aximo-icon" href="service.html">
-                    <Image src={arrowRight} alt="" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div
-                className="aximo-iconbox-wrap wow fadeInUpX"
-                data-wow-delay="0.4s"
-              >
-                <div className="aximo-iconbox-icon">
-                  <i className="icon-design-thinking"></i>
-                </div>
-                <div className="aximo-iconbox-data">
-                  <h3>Motion Graphics</h3>
-                  <p>
-                    Creating animate graphics, videos for various purposes,
-                    including marketing and entertainment. To help sell a
-                    product or service.
-                  </p>
-                  <a className="aximo-icon" href="service.html">
-                    <Image src={arrowRight} alt="" />
-                  </a>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

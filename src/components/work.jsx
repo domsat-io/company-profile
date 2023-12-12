@@ -1,50 +1,12 @@
-import { useEffect, useState } from "react";
+'use client';
+import {useState } from "react";
 import Image from "next/image";
 import star2 from "../assets/images/v1/star2.png";
 import vidio_bg from "../assets/images/v1/video-bg.png";
 import play_btn from "../assets/images/v1/play-btn.svg";
-// import { useSpring, animated } from "react-spring";
+import ReactPlayer from "react-player/lazy";
 const Work = () => {
-  const [animationTriggered, setAnimationTriggered] = useState(false);
-
-  function number(n) {
-    const { number } = useSpring({
-      from: { number: 0 },
-      number: n,
-      delay: 200,
-      config: { mass: 1, tension: 20, friction: 10 },
-    });
-    return <animated.span>{number}</animated.span>;
-  }
-  useEffect(() => {
-    const aximoCounter = document.getElementById("aximo-counter");
-
-    if (aximoCounter) {
-      const handleScroll = () => {
-        const oTop = aximoCounter.offsetTop - window.innerHeight;
-
-        if (!animationTriggered && window.scrollY > oTop) {
-          const counters = document.querySelectorAll(".aximo-counter");
-
-          counters.forEach((counter) => {
-            const countTo = counter.getAttribute("data-percentage");
-            const countNum = parseInt(counter.innerText, 10);
-
-            // counter.innerHTML = number(countNum);
-          });
-
-          setAnimationTriggered(true);
-        }
-      };
-
-      window.addEventListener("scroll", handleScroll);
-
-      // Cleanup event listener when the component unmounts
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
-  }, [animationTriggered]);
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="section aximo-section-padding">
       <div id="aximo-counter"></div>
@@ -74,12 +36,9 @@ const Work = () => {
           <div className="col-lg-8">
             <div className="aximo-video-wrap wow fadeInUpX" data-wow-delay="0s">
               <Image src={vidio_bg} alt="" />
-              <a
-                className="aximo-video-popup play-btn1 video-init"
-                href="https://www.youtube.com/watch?v=Vx2aLNgGoAE"
-              >
+              <button className="aximo-video-popup play-btn1 video-init" onClick={() => setShowModal(prev => !prev)}>
                 <Image src={play_btn} alt="" />
-              </a>
+              </button>
             </div>
           </div>
           <div className="col-lg-4">
@@ -104,6 +63,45 @@ const Work = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      {showModal && <Modal isModal={showModal} onClick={setShowModal} />}
+    </div>
+  );
+};
+
+const Modal = ({ isModal, onClick }) => {
+  const handleToggleModal = (param) => {
+    onClick(param);
+  };
+
+  return (
+    <div
+      className={`fixed top-0 w-full min-h-screen flex flex-col justify-center items-center ${
+        isModal ? "block z-50" : "hidden"
+      }`}
+    >
+      <div className="w-full flex justify-center items-center">
+        <div className="w-full bg-black md:w-3/4">
+        <div className="w-full flex justify-between items-center h-16 px-5 box-border text-white">
+          <h1 className="font-bold text-base lg:text-xl text-white">Play Trailer</h1>
+          <button
+            className="text-3xl"
+            onClick={() => handleToggleModal(false)}
+          >
+            &times;
+          </button>
+        </div>
+        <div className="w-full h-96 bg-white md:h-[550px]">
+            <ReactPlayer
+              url={`https://www.youtube.com/watch?v=Vx2aLNgGoAE`}
+              controls={true}
+              loop={false}
+              playing={false}
+              width="100.02%"
+              height="100%"
+            />
+        </div>
         </div>
       </div>
     </div>

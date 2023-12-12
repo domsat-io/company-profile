@@ -14,12 +14,11 @@ const Hero = () => {
         <div className="row">
           <div className="col-lg-8">
             <div className="aximo-hero-content">
-              <h1 className="text-5xl md:text-[70px]">
+              <h1 className="text-5xl md:text-[70px] flex flex-wrap">
                 <span className="aximo-title-animation">
-                  A creative
-                  <Image src={star} alt="" />
+                  A creative <Image src={star} alt="" />
                 </span>
-                design studio
+                <span>design studio</span>
               </h1>
               <p>
                 We&apos;re a creative design studio specializing in meeting the
@@ -29,24 +28,15 @@ const Hero = () => {
               </p>
               <div className="aximo-hero-user-wrap">
                 <div className="aximo-hero-user-thumb">
-                  <div
-                    className="aximo-hero-user-thumb-item wow fadeInUpX"
-                    data-wow-delay="0s"
-                  >
-                    <Image src={user1} alt="" />
-                  </div>
-                  <div
-                    className="aximo-hero-user-thumb-item wow fadeInUpX"
-                    data-wow-delay="0.25s"
-                  >
-                    <Image src={user2} alt="" />
-                  </div>
-                  <div
-                    className="aximo-hero-user-thumb-item wow fadeInUpX"
-                    data-wow-delay="0.4s"
-                  >
-                    <Image src={user2} alt="" />
-                  </div>
+                  {[...new Array(3)].map((index) => (
+                    <div
+                      className="aximo-hero-user-thumb-item wow fadeInUpX"
+                      data-wow-delay="0s"
+                      key={index}
+                    >
+                      <Image src={user1} alt="" />
+                    </div>
+                  ))}
                 </div>
                 <div className="aximo-hero-user-data">
                   <p>Believed by more than a thousand people</p>
