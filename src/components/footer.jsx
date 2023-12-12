@@ -8,7 +8,7 @@ import arrowRight3 from "../assets/images/icon/arrow-right3.svg";
 
 const Footer = () => {
   return (
-    <footer class="aximo-footer-section dark-bg">
+    <footer class="aximo-footer-section dark-bg" id="contact">
       <div class="container">
         <div class="aximo-footer-top aximo-section-padding">
           <div class="row">
@@ -111,11 +111,7 @@ const Footer = () => {
             <div class="col-lg-6">
               <div class="aximo-footer-logo">
                 <a href="">
-                  <Image
-                    src={logoWhite}
-                    alt=""
-                    className="w-[121px] h-[24px]"
-                  />
+                  <Image src={logoWhite} alt="" />
                 </a>
               </div>
             </div>

@@ -4,6 +4,7 @@ import star2 from "../assets/images/v1/star2.png";
 import vidio_bg from "../assets/images/v1/video-bg.png";
 import play_btn from "../assets/images/v1/play-btn.svg";
 // import { useSpring, animated } from "react-spring";
+
 const Work = () => {
   const [animationTriggered, setAnimationTriggered] = useState(false);
 
@@ -16,6 +17,7 @@ const Work = () => {
     });
     return <animated.span>{number}</animated.span>;
   }
+
   useEffect(() => {
     const aximoCounter = document.getElementById("aximo-counter");
 
@@ -45,8 +47,9 @@ const Work = () => {
       };
     }
   }, [animationTriggered]);
+
   return (
-    <div className="section aximo-section-padding">
+    <div className="section aximo-section-padding" id="work">
       <div id="aximo-counter"></div>
       <div className="container">
         <div className="aximo-section-title">

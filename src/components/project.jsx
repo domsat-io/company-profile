@@ -48,8 +48,9 @@ const Project = () => {
         "Creating or refreshing a company's logo and developing a cohesive visual identity.",
     },
   ];
+
   return (
-    <div className="section dark-bg aximo-section-padding">
+    <div className="section dark-bg aximo-section-padding" id="project">
       <div className="container">
         <div className="aximo-section-title center light">
           <h2>

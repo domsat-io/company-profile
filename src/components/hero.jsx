@@ -9,7 +9,7 @@ import shape1 from "../assets/images/v1/shape1.png";
 
 const Hero = () => {
   return (
-    <div className="aximo-hero-section dark-bg">
+    <div className="aximo-hero-section dark-bg" id="hero">
       <div className="container position-relative">
         <div className="row">
           <div className="col-lg-8">
@@ -55,9 +55,9 @@ const Hero = () => {
               <a className="aximo-call-btn" href="contact-us.html">
                 Book a free consultation <i className="icon-call"></i>
               </a>
-              <div className="aximo-hero-shape">
+              {/* <div className="aximo-hero-shape">
                 <Image src={shape1} alt="" />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="col-lg-4">

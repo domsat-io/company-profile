@@ -5,7 +5,7 @@ import arrowRight from "../assets/images/icon/arrow-right.svg";
 
 const Service = () => {
   return (
-    <div className="section aximo-section-padding4">
+    <div className="section aximo-section-padding4" id="service">
       <div className="container">
         <div className="aximo-section-title center">
           <h2>
@@ -35,9 +35,6 @@ const Service = () => {
                     design enhance the usability and accessibility of digital
                     products & app.
                   </p>
-                  <a className="aximo-icon" href="service.html">
-                    <Image src={arrowRight} alt="" />
-                  </a>
                 </div>
               </div>
             </div>
@@ -56,9 +53,6 @@ const Service = () => {
                     page layout techniques, brochures, & other marketing
                     collateral.
                   </p>
-                  <a className="aximo-icon" href="service.html">
-                    <Image src={arrowRight} alt="" />
-                  </a>
                 </div>
               </div>
             </div>
@@ -77,9 +71,6 @@ const Service = () => {
                     visually look and appealing, user-friendly, and functional
                     your website.
                   </p>
-                  <a className="aximo-icon" href="service.html">
-                    <Image src={arrowRight} alt="" />
-                  </a>
                 </div>
               </div>
             </div>
@@ -98,9 +89,6 @@ const Service = () => {
                     including marketing and entertainment. To help sell a
                     product or service.
                   </p>
-                  <a className="aximo-icon" href="service.html">
-                    <Image src={arrowRight} alt="" />
-                  </a>
                 </div>
               </div>
             </div>
