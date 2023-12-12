@@ -5,6 +5,15 @@ import Image from "next/image";
 import logoWhite from "../assets/images/logo/logo-white.svg";
 
 export default function Header() {
+  const navs = [
+    { name: "Service", link: "#service" },
+    { name: "Work", link: "#work" },
+    { name: "Project", link: "#project" },
+    { name: "FAQ", link: "#faq" },
+    { name: "Client", link: "#client" },
+    { name: "Team", link: "#team" },
+  ];
+
   return (
     <header
       className="site-header aximo-header-section aximo-header1 dark-bg"
@@ -28,36 +37,13 @@ export default function Header() {
                 <div className="mobile-menu-close">&times;</div>
               </div>
               <ul className="site-menu-main">
-                <li className="nav-item">
-                  <a href="#service" className="nav-link-item">
-                    Service
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="#work" className="nav-link-item">
-                    Work
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="#project" className="nav-link-item">
-                    Project
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="#faq" className="nav-link-item">
-                    FAQ
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="#client" className="nav-link-item">
-                    Client
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="#team" className="nav-link-item">
-                    Team
-                  </a>
-                </li>
+                {navs.map((nav, index) => (
+                  <li className="nav-item" key={index}>
+                    <a href={nav.link} className="nav-link-item">
+                      {nav.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>
