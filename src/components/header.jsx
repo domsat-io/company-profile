@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Image from "next/image";
-// import { headers } from "../../next.config";
+import Link from "next/link";
 import logoWhite from "../assets/images/logo/logo-white.svg";
 
 export default function Header() {
@@ -39,9 +39,9 @@ export default function Header() {
               <ul className="site-menu-main">
                 {navs.map((nav, index) => (
                   <li className="nav-item" key={index}>
-                    <a href={nav.link} className="nav-link-item">
+                    <Link href={nav.link} className="nav-link-item">
                       {nav.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -49,12 +49,12 @@ export default function Header() {
           </div>
 
           <div className="header-btn header-btn-l1 ms-auto d-none d-xs-inline-flex">
-            <a
+            <Link
               className="aximo-default-btn pill aximo-header-btn"
               href="#contact"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
           <div className="mobile-menu-trigger light">
             <span></span>

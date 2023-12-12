@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import star2 from "../assets/images/v1/star2.png";
 import arrowRight from "../assets/images/icon/arrow-right.svg";
+import Link from "next/link";
 
 const Service = () => {
   const services = [
@@ -59,9 +60,9 @@ const Service = () => {
                   <div className="aximo-iconbox-data">
                     <h3>{service.title}</h3>
                     <p>{service.description}</p>
-                    <a className="aximo-icon" href="service.html">
+                    <Link className="aximo-icon" href="service.html">
                       <Image src={arrowRight} alt={arrowRight} />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

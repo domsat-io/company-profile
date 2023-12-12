@@ -4,6 +4,8 @@ import team1 from "../assets/images/team/team1.png";
 import team2 from "../assets/images/team/team2.png";
 import team3 from "../assets/images/team/team3.png";
 import team4 from "../assets/images/team/team4.png";
+import Link from "next/link";
+
 const Team = () => {
   const data_team = [
     {
@@ -70,32 +72,32 @@ const Team = () => {
                   <div className="aximo-social-icon team-social">
                     <ul>
                       <li>
-                        <a href={item.twiter} target="_blank">
+                        <Link href={item.twiter} target="_blank">
                           <i className="icon-twitter"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href={item.facebook} target="_blank">
+                        <Link href={item.facebook} target="_blank">
                           <i className="icon-facebook"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href={item.instagram} target="_blank">
+                        <Link href={item.instagram} target="_blank">
                           <i className="icon-instagram"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href={item.linkedin} target="_blank">
+                        <Link href={item.linkedin} target="_blank">
                           <i className="icon-linkedin"></i>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
                 </div>
                 <div className="aximo-team-data">
-                  <a href="single-team.html">
+                  <Link href="single-team.html">
                     <h3>{item.name}</h3>
-                  </a>
+                  </Link>
                   <p>{item.position}</p>
                 </div>
               </div>

@@ -6,6 +6,7 @@ import user2 from "../assets/images/v1/user2.png";
 import user3 from "../assets/images/v1/user3.png";
 import heroThumb from "../assets/images/v1/hero-thumb.png";
 import shape1 from "../assets/images/v1/shape1.png";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -42,9 +43,9 @@ const Hero = () => {
                   <p>Believed by more than a thousand people</p>
                 </div>
               </div>
-              <a className="aximo-call-btn" href="contact-us.html">
+              <Link className="aximo-call-btn" href="#contact">
                 Book a free consultation <i className="icon-call"></i>
-              </a>
+              </Link>
               {/* <div className="aximo-hero-shape">
                 <Image src={shape1} alt="" />
               </div> */}
