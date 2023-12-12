@@ -1,4 +1,5 @@
 "use client";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import star2 from "../assets/images/v1/star2.png";
 import project1 from "../assets/images/v1/project1.png";
@@ -8,8 +9,43 @@ import project4 from "../assets/images/v1/project4.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Mousewheel, Pagination } from "swiper/modules";
+import Link from "next/link";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const Project = () => {
+  const sectionRef = useRef(null);
+  const triggerRef = useRef(null);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    const pin = gsap.fromTo(
+      sectionRef.current,
+      {
+        translateX: 0,
+      },
+      {
+        translateX: "-300vw",
+        ease: "none",
+        duration: 1,
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top top",
+          end: "2000 top",
+          scrub: 0.6,
+          pin: true,
+        },
+      }
+    );
+    return () => {
+      {
+        /* A return function for killing the animation on component unmount */
+      }
+      pin.kill();
+    };
+  }, []);
+
   const data_projects = [
     {
       img: project1,
@@ -51,48 +87,24 @@ const Project = () => {
 
   return (
     <div className="section dark-bg aximo-section-padding" id="project">
-      <div className="container">
-        <div className="aximo-section-title center light">
-          <h2>
-            Have a wide range of
-            <span className="aximo-title-animation">
-              creative projects
-              <span className="aximo-title-icon">
-                <Image src={star2} alt="" className="w-[58px] h-14" />
+      <div ref={triggerRef}>
+        <div className="container">
+          <div className="aximo-section-title center light">
+            <h2>
+              Have a wide range of
+              <span className="aximo-title-animation">
+                creative projects
+                <span className="aximo-title-icon">
+                  <Image src={star2} alt="" className="w-[58px] h-14" />
+                </span>
               </span>
-            </span>
-          </h2>
+            </h2>
+          </div>
         </div>
-      </div>
-      <div className="w-full max-h-max aximo-testimonial-slider">
-        <Swiper
-          direction={"horizontal"}
-          slidesPerView={1}
-          spaceBetween={25}
-          mousewheel={{
-            releaseOnEdges: true,
-          }}
-          pagination={{
-            el: ".swiper-pagination",
-            clickable: true,
-          }}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-            },
-            900: {
-              slidesPerView: 2,
-            },
-            1600: {
-              slidesPerView: 2,
-            },
-          }}
-          modules={[Mousewheel, Pagination]}
-          className="mySwiper"
-        >
-          {data_projects.map((project, index) => (
-            <SwiperSlide key={index}>
-              <div className="aximo-project-thumb">
+        <div className="overflow-hidden">
+          <div ref={sectionRef} className="w-[200vw] flex flex-row relative">
+            {data_projects.map((project, index) => (
+              <div className="aximo-project-thumb" key={index}>
                 <Image
                   src={project.img}
                   alt={project.img}
@@ -100,12 +112,12 @@ const Project = () => {
                 />
                 <div className="aximo-project-wrap">
                   <div className="aximo-project-data">
-                    <a href="single-portfolio.html">
+                    <Link href="single-portfolio.html">
                       <h3>{project.title}</h3>
-                    </a>
+                    </Link>
                     <p>{project.description}</p>
                   </div>
-                  <a
+                  <Link
                     className="aximo-project-icon"
                     href="single-portfolio.html"
                   >
@@ -124,13 +136,24 @@ const Project = () => {
                         stroke-linejoin="round"
                       />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
-            </SwiperSlide>
-          ))}
-          <div class="swiper-pagination"></div>
-        </Swiper>
+            ))}
+            {/* <div className="w-screen flex justify-center items-center">
+              <h3 className="text-white">Section 1</h3>
+            </div>
+            <div className="w-screen flex justify-center items-center">
+              <h3 className="text-white">Section 2</h3>
+            </div>
+            <div className="w-screen flex justify-center items-center">
+              <h3 className="text-white">Section 3</h3>
+            </div>
+            <div className="w-screen flex justify-center items-center">
+              <h3 className="text-white">Section 4</h3>
+            </div> */}
+          </div>
+        </div>
       </div>
     </div>
   );
