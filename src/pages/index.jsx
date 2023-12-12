@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
@@ -13,7 +14,12 @@ import Work from "@/components/work";
 export default function Home() {
   return (
     <>
-      <Header />
+      <Head>
+        <title>Domsat.io</title>
+      </Head>
+
+      {/* <Header /> */}
+
       <main>
         <Hero />
         <Service />
