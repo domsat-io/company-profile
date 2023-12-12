@@ -91,8 +91,7 @@ const Client = () => {
                   </div>
                   <div className="aximo-testimonial-author-data">
                     <p>
-                      {item.name}
-                      <span>{item.designation}</span>
+                      {item.name} <span>{item.designation}</span>
                     </p>
                   </div>
                 </div>
