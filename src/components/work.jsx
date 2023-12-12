@@ -5,9 +5,28 @@ import star2 from "../assets/images/v1/star2.png";
 import vidio_bg from "../assets/images/v1/video-bg.png";
 import play_btn from "../assets/images/v1/play-btn.svg";
 import ReactPlayer from "react-player/lazy";
+import CountUp from "react-countup";
 
 const Work = () => {
   const [showModal, setShowModal] = useState(false);
+
+  const counters = [
+    {
+      id: 1,
+      number: 15,
+      title: "Years of experience",
+    },
+    {
+      id: 2,
+      number: 120,
+      title: "Successful projects",
+    },
+    {
+      id: 3,
+      number: 100,
+      title: "Client satisfaction rate",
+    },
+  ];
 
   return (
     <div className="section aximo-section-padding" id="work">
@@ -48,24 +67,24 @@ const Work = () => {
           </div>
           <div className="col-lg-4">
             <div className="aximo-counter-wrap">
-              <div className="aximo-counter-data">
-                <h2 className="aximo-counter-number">
-                  <span data-percentage="15" className="aximo-counter"></span>+
-                </h2>
-                <p>Years of experience</p>
-              </div>
-              <div className="aximo-counter-data">
-                <h2 className="aximo-counter-number">
-                  <span data-percentage="120" className="aximo-counter"></span>k
-                </h2>
-                <p>Successful projects</p>
-              </div>
-              <div className="aximo-counter-data">
-                <h2 className="aximo-counter-number">
-                  <span data-percentage="100" className="aximo-counter"></span>%
-                </h2>
-                <p>Client satisfaction rate</p>
-              </div>
+              {counters.map((counter) => (
+                <div className="aximo-counter-data" key={counter.id}>
+                  <h2 className="aximo-counter-number">
+                    <CountUp
+                      start={0}
+                      end={counter.number}
+                      duration={5}
+                      enableScrollSpy={true}
+                      scrollSpyDelay={500}
+                      scrollSpyOnce={true}
+                    />
+                    {counter.title === "Years of experience" && "+"}
+                    {counter.title === "Successful projects" && "k"}
+                    {counter.title === "Client satisfaction rate" && "%"}
+                  </h2>
+                  <p>{counter.title}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
